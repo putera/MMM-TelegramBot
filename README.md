@@ -18,7 +18,7 @@ modules: [
 			// See 'Configuration options' for more information.
 			telegramAPIKey: '- Your Telegram API Token -',
 			allowedUser: ['- Your Telegram username without @ -'],
-			adminChatId: ['- Your chatId with bot -']
+			adminChatId: '- Your chatId with bot -'
 		}
 	}
 ]
