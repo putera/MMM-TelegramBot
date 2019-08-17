@@ -162,6 +162,21 @@ Module.register("MMM-TelegramBot",
                 callback : 'TELBOT_shutdown',
             },
             {
+                command: 'restartmirror',
+                description : this.translate("TELBOT_RESTART_MIRROR"),
+                callback : 'TELBOT_restartmirror',
+            },
+            {
+                command: 'screenon',
+                description : this.translate("TELBOT_SCREEN_ON"),
+                callback : 'TELBOT_screenon',
+            },
+            {
+                command: 'screenoff',
+                description : this.translate("TELBOT_SCREEN_OFF"),
+                callback : 'TELBOT_screenoff',
+            },
+            {
                 command : 'light',
                 moduleName : 'MMM-Yeelight',
                 description: this.translate("TELBOT_LIGHT"),
@@ -330,6 +345,18 @@ Module.register("MMM-TelegramBot",
 
             this.sendSocketNotification('SHUTDOWN');
         }
+    },
+
+    TELBOT_restartmirror: function(command, handler) {
+        this.sendSocketNotification('PM2', 'restart 0');
+    },
+
+    TELBOT_screenon: function(command, handler) {
+        this.sendSocketNotification('SCREEN_ON');
+    },
+
+    TELBOT_screenoff: function(command, handler) {
+        this.sendSocketNotification('SCREEN_OFF');
     },
 
     TELBOT_light: function (command, handler) {

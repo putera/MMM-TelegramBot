@@ -242,6 +242,16 @@ module.exports = NodeHelper.create({
                     console.log(callback);
                 });
             break;
+            case 'SCREEN_ON':
+                execute('vcgencmd display_power 1', function(callback) {
+                    console.log(callback);
+                });
+            break;
+            case 'SCREEN_OFF':
+                execute('vcgencmd display_power 0', function(callback) {
+                    console.log(callback);
+                });
+            break;
         }
     },
 
