@@ -1,0 +1,20 @@
+{
+  "name": "MMM-TelegramBot",
+  "version": "1.0.0",
+  "description": "A MagicMirror² modules for controlling the magic mirror through Telegram Bot",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/putera/MMM-TelegramBot.git"
+  },
+  "keywords": ["MagicMirror", "Telegram", "TelegramBot", "Bot"],
+  "author": "Zulkifli Mohamed",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/putera/MMM-TelegramBot/issues"
+  },
+  "homepage": "https://github.com/putera/MMM-TelegramBot",
+  "dependencies": {
+    "moment": "^2.18.1",
+    "node-telegram-bot-api": "^0.28.0"
+  }
+}
