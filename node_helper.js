@@ -34,6 +34,10 @@ module.exports = NodeHelper.create({
             this.adminChatId = config.adminChatId;
         }
 
+        if (typeof config.allowedUser !== 'undefined') {
+            this.allowed = new Set(config.allowedUser);
+        }
+
         if (typeof config.telegramAPIKey !== 'undefined')
         {
             try {
@@ -50,8 +54,7 @@ module.exports = NodeHelper.create({
             this.TB.on('message', (msg) => {
                 var time = moment.unix(msg.date);
                 if (startTime.isBefore(time)) {
-                    console.log("[TELBOT][" + time.format('YYYY-MM-DD HH:mm:ss') + "] " + this.config.text["TELBOT_HELPER_MSG_COMING"] + " : " + msg.chat.id);
-                    
+
                     if (!this.allowed.has(msg.from.username)) {
                         this.say(this.notAllowedMsg(msg.message_id, msg.chat.id));
                         return;
@@ -68,7 +71,7 @@ module.exports = NodeHelper.create({
                                 this.askSession.delete(s);
                                 return;
                             }
-              
+
                             if (moment.unix(s.time).isBefore(moment().add(-1, 'hours'))) {
                                 this.askSession.delete(s);
                             }
@@ -79,8 +82,6 @@ module.exports = NodeHelper.create({
 
                     this.sendSocketNotification('MESSAGE', msg);
                     return;
-                } else {
-                    // too old. do nothing
                 }
             });
         }
@@ -105,7 +106,7 @@ module.exports = NodeHelper.create({
 
     welcomeMsg: function() {
         var text = "*" + this.config.text["TELBOT_HELPER_WAKEUP"] + "*\n"
-        + this.config.text["TELBOT_HELPER_RESTART"] + " " + startTime.format("YYYY-MM-DD HH:mm:ss") + "\n";
+        + this.config.text["TELBOT_HELPER_RESTART"] + " " + startTime.format("DD/MM/YYYY HH:mm:ss") + "\n";
 
         var msg = {
             type: 'TEXT',
@@ -263,7 +264,7 @@ module.exports = NodeHelper.create({
         } else {
             console.log(err);
         }
-    
+
         console.log("ERR_RESPONSE", response);
 
         if (err.code !== 'EFATAL') {
@@ -284,9 +285,9 @@ module.exports = NodeHelper.create({
                     parse_mode: 'Markdown'
                 }
             }
-      
+
             this.say(msg, true);
-            
+
             msg = {
                 type: 'TEXT',
                 chat_id: response.chat_id,

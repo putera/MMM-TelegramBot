@@ -1,8 +1,8 @@
 {
+  "TELBOT_HELPER_WAKEUP" : "[SmartMirror] : Selamat Datang ke SmartMirror !",
   "TELBOT_HELPER_ERROR" : "Ada error la pulak.",
   "TELBOT_HELPER_NOT_ALLOWED" : "Anda tidak diberi kebenaran untuk menghantar arahan.",
-  "TELBOT_HELPER_RESTART" : "SmartMirror :",
-  "TELBOT_HELPER_WAKEUP" : "Assalamualaikum Bos !",
+  "TELBOT_HELPER_RESTART" : "SmartMirror beroperasi pada :",
   "TELBOT_HELPER_MSG_COMING" : "Mesej datang dari CHAT",
   "TELBOT_HELPER_TOOOLDMSG" : "Mesej anda lama sangat",
   "TELBOT_NOT_REGISTERED_COMMAND" : "Alamak ! arahan ni belum lagi didaftarkan.",

@@ -54,7 +54,7 @@ Module.register("MMM-TelegramBot",
     },
 
     getScripts: function() {
-        return ["js/TelegramBot_Library.js"];
+        return [this.file("js/TelegramBot.Library.js")];
     },
 
     registerCommand: function(module, commandObj) {
@@ -71,7 +71,7 @@ Module.register("MMM-TelegramBot",
             var sameCommand = this.commands.filter(function(com) {
                 if (com.command == command) return com;
             });
-      
+
             if (sameCommand.length > 0) {
                 isNameUsed = 1;
                 command = c.command + idx;
@@ -238,7 +238,7 @@ Module.register("MMM-TelegramBot",
         var text = "";
         var hidden = this.translate("TELBOT_HIDDEN");
         var showing = this.translate("TELBOT_SHOWING");
-    
+
         MM.getModules().enumerate((m) => {
             text += "`" + m.name + "` _";
             text += ((m.hidden) ? hidden : showing);
@@ -399,7 +399,7 @@ Module.register("MMM-TelegramBot",
         var args = null;
         var response = null;
         var chatId = msg.chat.id;
-    
+
         if (typeof msg.text == 'undefined') return;
         var msgText = msg.text;
         var matched = msgText.match(new RegExp("^\/([0-9a-zA-Z-_]+)\s?(.*)$"));
@@ -431,7 +431,7 @@ Module.register("MMM-TelegramBot",
                                         p = /.*/
                                     }
                                 }
-                
+
                                 var result = p.exec(restText.trim());
                                 if (c.argsMapping && Array.isArray(c.argsMapping)) {
                                     if (typeof c.argsMapping[j] !== 'undefined') {
@@ -459,7 +459,7 @@ Module.register("MMM-TelegramBot",
                             args = restText;
                         }
                     }
-          
+
                     if (msg.chat.id == this.config.adminChatId) {
                         msg.admin = 'admin';
                     }
@@ -535,13 +535,13 @@ Module.register("MMM-TelegramBot",
                             ask: this.ask.bind(this),
                             say: this.say.bind(this)
                         }
-            
+
                         var handler = new TelegramBotMessageHandler(payload, payload.text, callbacks);
                         s.callback("ANSWER_FOR_ASK", handler);
                         this.askSession.delete(s);
                         return;
                     }
-          
+
                     if (moment.unix(s.time).isBefore(moment().add(-1, 'hours'))) {
                         this.askSession.delete(s);
                     }
@@ -561,7 +561,7 @@ Module.register("MMM-TelegramBot",
                 this.sendSocketNotification('ALLOWEDUSER', [...this.allowed]);
                 var commands = [];
                 var self = this;
-        
+
                 MM.getModules().enumerate((m) => {
                     if (m.name !== 'MMM-TelegramBot') {
                         if (typeof m.getCommands == 'function') {

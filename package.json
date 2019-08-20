@@ -14,7 +14,7 @@
   },
   "homepage": "https://github.com/putera/MMM-TelegramBot",
   "dependencies": {
-    "moment": "^2.18.1",
-    "node-telegram-bot-api": "^0.28.0"
+    "moment": "latest",
+    "node-telegram-bot-api": "latest"
   }
 }
