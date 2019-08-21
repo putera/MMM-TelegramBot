@@ -34,10 +34,6 @@ module.exports = NodeHelper.create({
             this.adminChatId = config.adminChatId;
         }
 
-        if (typeof config.allowedUser !== 'undefined') {
-            this.allowed = new Set(config.allowedUser);
-        }
-
         if (typeof config.telegramAPIKey !== 'undefined')
         {
             try {

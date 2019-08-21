@@ -35,10 +35,5 @@
   "TELBOT_SHOWING" : "dipaparkan",
   "TELBOT_DISMISSALERT" : "Hilangkan alert pada SmartMirror.",
   "TELBOT_SCREEN_ON" : "Buka display SmartMirror.",
-  "TELBOT_SCREEN_OFF" : "Tutup display SmartMirror.",
-  "TELBOT_LIGHT" : "Kawal lampu anda melalui Telegram Bot.",
-  "TELBOT_LIGHT_TURNING_ON" : "Sedang buka lampu untuk anda sekarang.",
-  "TELBOT_LIGHT_TURNING_OFF" : "Sedang menutup lampu untuk anda sekarang.",
-  "TELBOT_LIGHT_SPEFICY" : "Nak buka ke tutup lampu ? Sila beritahu pada saya.",
-  "TELBOT_LIGHT_NOT_INSTALLED" : "Alamak ! Anda perlu memasang modul MMM-Yeelight sebelum anda boleh menggunakan arahan ini."
+  "TELBOT_SCREEN_OFF" : "Tutup display SmartMirror."
 }

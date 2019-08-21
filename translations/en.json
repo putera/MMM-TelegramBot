@@ -35,10 +35,5 @@
   "TELBOT_SHOWING" : "showing",
   "TELBOT_DISMISSALERT" : "Remove Alert from Mirror",
   "TELBOT_SCREEN_ON" : "Turn your SmartMirror display on.",
-  "TELBOT_SCREEN_OFF" : "Turn your SmartMirror display off.",
-  "TELBOT_LIGHT" : "Controlling your light from the SmartMirror",
-  "TELBOT_LIGHT_TURNING_ON" : "Turning ON the light for you",
-  "TELBOT_LIGHT_TURNING_OFF" : "Turning OFF the light for you",
-  "TELBOT_LIGHT_SPEFICY" : "Do you want the light to be ON or OFF ? Please specify.",
-  "TELBOT_LIGHT_NOT_INSTALLED" : "Ops! You need to install MMM-Yeelight before you can use the command."
+  "TELBOT_SCREEN_OFF" : "Turn your SmartMirror display off."
 }
