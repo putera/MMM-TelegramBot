@@ -329,7 +329,7 @@ Module.register("MMM-TelegramBot",
             handler.say("TEXT", text, {parse_mode:'Markdown'});
         } else {
             text = this.translate("TELBOT_SHUTDOWN_RESPONSE");
-            handler.reply("TEXT", text, {parse_mode:'Markdown'});
+            handler.say("TEXT", text, {parse_mode:'Markdown'});
 
             this.sendSocketNotification('SHUTDOWN');
         }
@@ -337,7 +337,7 @@ Module.register("MMM-TelegramBot",
 
     TELBOT_restartmirror: function(command, handler) {
         var text = this.translate("TELBOT_MIRROR_RESTARTED");
-        handler.reply("TEXT", text, {parse_mode:'Markdown'});
+        handler.say("TEXT", text, {parse_mode:'Markdown'});
         
         this.sendSocketNotification('PM2', 'restart 0');
     },
@@ -444,7 +444,7 @@ Module.register("MMM-TelegramBot",
                     say: this.say.bind(this)
                 }
                 var handler = new TelegramBotMessageHandler(msg, null, callbacks);
-                handler.reply("TEXT", this.translate("TELBOT_NOT_REGISTERED_COMMAND"));
+                handler.say("TEXT", this.translate("TELBOT_NOT_REGISTERED_COMMAND"));
             }
         } else {
             // do nothing. This is not command
