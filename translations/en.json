@@ -29,6 +29,7 @@
   "TELBOT_REBOOT_RESPONSE" : "I will reboot `SmartMirror` now.",
   "TELBOT_SHUTDOWN_RESPONSE" : "I will shutdown `SmartMirror` now.",
   "TELBOT_RESTART_MIRROR" : "Restart the `SmartMirror`.",
+  "TELBOT_MIRROR_RESTARTED" : "`SmartMirror` is restarting...",
   "TELBOT_HIDDEN" : "hidden",
   "TELBOT_SHOWING" : "showing",
   "TELBOT_DISMISSALERT" : "Remove Alert from Mirror",

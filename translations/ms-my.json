@@ -29,6 +29,7 @@
   "TELBOT_REBOOT_RESPONSE" : "`SmartMirror` akan reboot sebentar lagi.",
   "TELBOT_SHUTDOWN_RESPONSE" : "`SmartMirror` akan ditutup sebentar lagi.",
   "TELBOT_RESTART_MIRROR" : "Restart `SmartMirror`",
+  "TELBOT_MIRROR_RESTARTED" : "`SmartMirror` sedang restart...",
   "TELBOT_HIDDEN" : "sembunyi",
   "TELBOT_SHOWING" : "dipaparkan",
   "TELBOT_DISMISSALERT" : "Hilangkan alert pada `SmartMirror`.",
