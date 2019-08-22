@@ -7,8 +7,6 @@
     E-mail : mr.putera@gmail.com
 */
 
-'use strict';
-
 String.prototype.toRegExp = function() {
     var lastSlash = this.lastIndexOf("/");
     if (lastSlash > 1) {
@@ -338,7 +336,7 @@ Module.register("MMM-TelegramBot",
     },
 
     TELBOT_restartmirror: function(command, handler) {
-        text = this.translate("TELBOT_MIRROR_RESTARTED");
+        var text = this.translate("TELBOT_MIRROR_RESTARTED");
         handler.reply("TEXT", text, {parse_mode:'Markdown'});
         
         this.sendSocketNotification('PM2', 'restart 0');
