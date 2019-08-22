@@ -203,7 +203,7 @@ Module.register("MMM-TelegramBot",
         if (!text) {
             text = this.translate("TELBOT_HELP_HELP");
         }
-        var result = handler.reply("TEXT", text, {parse_mode:'Markdown'});
+        var result = handler.say("TEXT", text, {parse_mode:'Markdown'});
     },
 
     TELBOT_list_commands: function(command, handler) {
