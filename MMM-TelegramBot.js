@@ -37,9 +37,7 @@ Module.register("MMM-TelegramBot",
             "TELBOT_HELPER_ERROR" : this.translate("TELBOT_HELPER_ERROR"),
             "TELBOT_HELPER_NOT_ALLOWED" : this.translate("TELBOT_HELPER_NOT_ALLOWED"),
             "TELBOT_HELPER_RESTART" : this.translate("TELBOT_HELPER_RESTART"),
-            "TELBOT_HELPER_WAKEUP" : this.translate("TELBOT_HELPER_WAKEUP"),
-            "TELBOT_HELPER_MSG_COMING" : this.translate("TELBOT_HELPER_MSG_COMING"),
-            "TELBOT_HELPER_TOOOLDMSG" : this.translate("TELBOT_HELPER_TOOOLDMSG")
+            "TELBOT_HELPER_WAKEUP" : this.translate("TELBOT_HELPER_WAKEUP")
         }
         this.sendSocketNotification('INIT', this.config);
         this.getCommands(new TelegramBotCommandRegister(this, this.registerCommand.bind(this)));
@@ -218,12 +216,12 @@ Module.register("MMM-TelegramBot",
         if (!text) {
             text = this.translate("TELBOT_COMMANDS_ERROR");
         }
-        handler.reply("TEXT", text, {parse_mode:'Markdown'});
+        handler.say("TEXT", text, {parse_mode:'Markdown'});
     },
 
     TELBOT_mychatid: function(command, handler) {
         var text = this.translate("TELBOT_MYCHATID_RESULT", {"chatid" : handler.message.chat.id});
-        handler.reply("TEXT", text, {parse_mode:'Markdown'});
+        handler.say("TEXT", text, {parse_mode:'Markdown'});
     },
 
     TELBOT_list_modules: function(command, handler) {
@@ -240,7 +238,7 @@ Module.register("MMM-TelegramBot",
         if (!text) {
             text = this.translate("TELBOT_MODULES_ERROR");
         }
-        handler.reply('TEXT', text, {parse_mode:'Markdown'});
+        handler.say('TEXT', text, {parse_mode:'Markdown'});
     },
 
     TELBOT_allowed: function(command, handler) {
@@ -252,7 +250,7 @@ Module.register("MMM-TelegramBot",
                 text += ", `" + username + "`";
             }
         }
-        handler.reply("TEXT", text, {parse_mode:'Markdown'});
+        handler.say("TEXT", text, {parse_mode:'Markdown'});
     },
 
     TELBOT_allowuser: function(command, handler) {
@@ -268,7 +266,7 @@ Module.register("MMM-TelegramBot",
             text = this.translate("TELBOT_ALLOWUSER_ERROR");
         }
 
-        handler.reply("TEXT", text, {parse_mode:'Markdown'})
+        handler.say("TEXT", text, {parse_mode:'Markdown'})
     },
 
     TELBOT_hideall: function(command, handler) {
@@ -279,7 +277,7 @@ Module.register("MMM-TelegramBot",
             m.hide(0, {lockString:lockString});
         });
         
-        handler.reply("TEXT", text, {parse_mode:'Markdown'});
+        handler.say("TEXT", text, {parse_mode:'Markdown'});
     },
 
     TELBOT_showall: function(command, handler) {
@@ -290,7 +288,7 @@ Module.register("MMM-TelegramBot",
             m.show(0, {lockString:lockString});
         });
 
-        handler.reply("TEXT", text, {parse_mode:'Markdown'});
+        handler.say("TEXT", text, {parse_mode:'Markdown'});
     },
 
     TELBOT_alert: function (command, handler) {
@@ -305,22 +303,22 @@ Module.register("MMM-TelegramBot",
             message: message
         });
 
-        handler.reply("TEXT", text, {parse_mode:'Markdown'});
+        handler.say("TEXT", text, {parse_mode:'Markdown'});
     },
 
     TELBOT_dismissalert: function (command, handler) {
         this.sendNotification('HIDE_ALERT');
-        handler.reply("TEXT", text, {parse_mode:'Markdown'});
+        handler.say("TEXT", text, {parse_mode:'Markdown'});
     },
 
     TELBOT_reboot: function(command, handler) {
         var text = "";
         if (handler.message.admin !== 'admin') {
             text = this.translate("TELBOT_ONLY_ADMIN");
-            handler.reply("TEXT", text, {parse_mode:'Markdown'});
+            handler.say("TEXT", text, {parse_mode:'Markdown'});
         } else {
             text = this.translate("TELBOT_REBOOT_RESPONSE");
-            handler.reply("TEXT", text, {parse_mode:'Markdown'});
+            handler.say("TEXT", text, {parse_mode:'Markdown'});
 
             this.sendSocketNotification('REBOOT');
         }
@@ -330,7 +328,7 @@ Module.register("MMM-TelegramBot",
         var text = "";
         if (handler.message.admin !== 'admin') {
             text = this.translate("TELBOT_ONLY_ADMIN");
-            handler.reply("TEXT", text, {parse_mode:'Markdown'});
+            handler.say("TEXT", text, {parse_mode:'Markdown'});
         } else {
             text = this.translate("TELBOT_SHUTDOWN_RESPONSE");
             handler.reply("TEXT", text, {parse_mode:'Markdown'});

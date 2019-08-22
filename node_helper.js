@@ -49,8 +49,8 @@ module.exports = NodeHelper.create({
 
             this.TB.on('message', (msg) => {
                 var time = moment.unix(msg.date);
-                if (startTime.isBefore(time)) {
-
+                if (startTime.isBefore(time))
+                {
                     if (!this.allowed.has(msg.from.username)) {
                         this.say(this.notAllowedMsg(msg.message_id, msg.chat.id));
                         return;
@@ -83,26 +83,9 @@ module.exports = NodeHelper.create({
         }
     },
 
-    tooOldMsg: function(origMsg) {
-        var text = origMsg.text
-        + this.config.text["TELBOT_HELPER_TOOOLDMSG"]
-        + moment.unix(origMsg.date).format('YYYY-MM-DD HH:mm:ss');
-
-        var msg = {
-            type: 'TEXT',
-            chat_id: origMsg.chat.id,
-            text: text,
-            option: {
-                disable_notification: false,
-                parse_mode: 'Markdown'
-            }
-        }
-        return msg;
-    },
-
     welcomeMsg: function() {
         var text = "*" + this.config.text["TELBOT_HELPER_WAKEUP"] + "*\n"
-        + this.config.text["TELBOT_HELPER_RESTART"] + " " + startTime.format("DD/MM/YYYY HH:mm:ss") + "\n";
+        + this.config.text["TELBOT_HELPER_RESTART"] + " " + startTime.format("DD/MM/YYYY hh:mm A") + "\n";
 
         var msg = {
             type: 'TEXT',
